@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,9 @@ import { Injectable } from '@angular/core';
 })
 export class MovieService {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
+
+  getMovieList(){
+    return this.http.get("http://127.0.0.1:8000/api/");
+  }
 }
