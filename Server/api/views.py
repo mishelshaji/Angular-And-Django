@@ -3,8 +3,10 @@ from django.http.response import HttpResponseBadRequest, HttpResponseNotFound, H
 from django.shortcuts import render, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.core.serializers import json
+from django.http import JsonResponse
 from django.views.decorators.http import require_GET, require_POST
 from store.models import Movie
+import json as json_converter
 
 # Create your views here.
 @require_GET
@@ -23,13 +25,18 @@ def view_single(request, id):
 @require_POST
 def create(request):
     try:
+        data = json_converter.loads(request.body)
+
         m = Movie()
-        m.name = request.POST.get("name")
-        m.director = request.POST.get("director")
-        m.description = request.POST.get("description")
-        m.release_date = request.POST.get("release_date")
+        m.name = data.get("name")
+        m.director = data.get("director")
+        m.description = data.get("description")
+        m.release_date = data.get("release_date")
         m.save()
-        return HttpResponse("OK")
+        responseData = {
+            'message': "OK",
+        }
+        return JsonResponse(responseData)
     except Exception as e:
         print(e)
         return HttpResponseServerError()

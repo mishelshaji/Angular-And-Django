@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { MovielistComponent } from './movielist/movielist.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NewmovieComponent } from './newmovie/newmovie.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { NewmovieComponent } from './newmovie/newmovie.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot([
       {path: '', component:MovielistComponent},
       {path: 'new', component:NewmovieComponent},
