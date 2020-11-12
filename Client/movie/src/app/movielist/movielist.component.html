@@ -1,1 +1,14 @@
-<p>movielist works!</p>
+<h1 class="text-center">Movies</h1>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Director</th>
+        <th>Release Date</th>
+    </tr>
+    <tr *ngFor="let m of movies">
+        <td>{{ m.fields.name }}</td>
+        <td>{{ m.fields.director }}</td>
+        <td>{{ m.fields['release_date'] }}</td>
+    </tr>
+</table>
