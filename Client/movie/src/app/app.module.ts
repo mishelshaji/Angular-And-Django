@@ -8,12 +8,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MovielistComponent } from './movielist/movielist.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { NewmovieComponent } from './newmovie/newmovie.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MovielistComponent,
-    NavbarComponent
+    NavbarComponent,
+    NewmovieComponent
   ],
   imports: [
     BrowserModule,
@@ -21,6 +23,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     HttpClientModule,
     RouterModule.forRoot([
       {path: '', component:MovielistComponent},
+      {path: 'new', component:NewmovieComponent},
     ]),
   ],
   providers: [
