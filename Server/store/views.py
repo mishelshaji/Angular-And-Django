@@ -6,3 +6,4 @@ from .models import Movie
 # Create your views here.
 class MovieList(ListView):
     model = Movie
+    queryset = Movie.objects.all()[:2]
